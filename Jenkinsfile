@@ -1,20 +1,13 @@
-node('master')
-
-{
-
-stage('ContinuousDownload_master') 
-   
-	 {
-	
-    git 'https://github.com/sunildevops77/maven.git'
-    
-	}
-
-stage('Continuousbuild_master') 
-   
-	 {
-	
-   sh label: '', script: 'mvn package'
-	}
+pipeline {
+    agent any
+stages ('Build'){
+steps { 
+echo "It is building"
+sh "mvn clean compile"
 }
+}
+stage('Test') {
+steps {
+echo "It is testing"
+sh "mvn test"
 
