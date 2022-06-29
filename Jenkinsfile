@@ -3,7 +3,7 @@ agent any
 stages {
 stage ('Build') {
 steps {
-echo "This is building"
+echo "This building"
 sh "mvn clean compile"
 }
 }
